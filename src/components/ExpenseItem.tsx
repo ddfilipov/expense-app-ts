@@ -2,7 +2,8 @@ import "./ExpenseItem.css";
 import { FC } from "react";
 import { ExpenseDate } from "./ExpenseDate";
 
-interface ExpenseItemProps {
+export interface ExpenseItemProps {
+    id: string;
     title: string;
     amount: number;
     date: Date;
