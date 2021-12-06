@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Card } from "./Card";
+import { Card } from "../UI/Card";
 import ExpenseItem, { ExpenseItemProps } from "./ExpenseItem";
 import "./Expenses.css";
 
