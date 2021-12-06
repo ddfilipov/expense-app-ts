@@ -11,6 +11,9 @@ export interface ExpenseItemProps {
 }
 
 const ExpenseItem: FC<ExpenseItemProps> = (props) => {
+    const clickHandler = () => {
+        console.log("clicking");
+    };
     return (
         <Card classCSS="expense-item">
             <ExpenseDate date={props.date} />
@@ -18,6 +21,7 @@ const ExpenseItem: FC<ExpenseItemProps> = (props) => {
                 <h2>{props.title}</h2>
                 <div className="expense-item__price">${props.amount}</div>
             </div>
+            <button onClick={clickHandler}>Change Title</button>
         </Card>
     );
 };
