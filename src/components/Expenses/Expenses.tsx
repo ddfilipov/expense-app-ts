@@ -11,7 +11,13 @@ export const Expenses: FC<ExpenseType> = ({ expenses }) => {
     return (
         <Card classCSS="expenses">
             {expenses.map((expense) => (
-                <ExpenseItem id={expense.id} title={expense.title} amount={expense.amount} date={expense.date} />
+                <ExpenseItem
+                    key={expense.id}
+                    id={expense.id}
+                    title={expense.title}
+                    amount={expense.amount}
+                    date={expense.date}
+                />
             ))}
         </Card>
     );
