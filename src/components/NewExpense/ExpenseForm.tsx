@@ -16,7 +16,7 @@ export const ExpenseForm: FC = () => {
         setEnteredDate(e.currentTarget.value);
     };
 
-    const submitHandler = (e: any) => {
+    const submitHandler = (e: React.FormEvent) => {
         e.preventDefault();
 
         const expenseData = {
