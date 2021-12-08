@@ -16,8 +16,20 @@ export const ExpenseForm: FC = () => {
         setEnteredDate(e.currentTarget.value);
     };
 
+    const submitHandler = (e: any) => {
+        e.preventDefault();
+
+        const expenseData = {
+            title: enteredTitle,
+            amount: enteredAmount,
+            date: new Date(enteredDate),
+        };
+
+        console.log(expenseData);
+    };
+
     return (
-        <form>
+        <form onSubmit={submitHandler}>
             <div className="new-expense__controls">
                 <div className="new-expense__control">
                     <label>Title</label>
