@@ -1,5 +1,6 @@
 import { Expenses } from "./components/Expenses/Expenses";
 import { NewExpense } from "./components/NewExpense/NewExpense";
+import { ExpenseItemProps } from "./components/Expenses/ExpenseItem";
 
 function App() {
     const expenses = [
@@ -24,9 +25,13 @@ function App() {
         },
     ];
 
+    const addExpenseHandler = (expense: ExpenseItemProps) => {
+        console.log("I'm in App.tsx",expense);
+    };
+
     return (
         <div>
-            <NewExpense />
+            <NewExpense onAddExpense={addExpenseHandler} />
             <Expenses expenses={expenses} />
         </div>
     );

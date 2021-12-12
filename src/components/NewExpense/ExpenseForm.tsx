@@ -1,15 +1,20 @@
 import React, { FC, useState } from "react";
 import "./ExpenseForm.css";
+import { ExpenseItemProps } from "../Expenses/ExpenseItem";
 
-export const ExpenseForm: FC = () => {
+export interface ExpanseFormType {
+    onSaveExpenseData: (expanse: ExpenseItemProps) => void;
+}
+
+export const ExpenseForm: FC<ExpanseFormType> = ({ onSaveExpenseData }) => {
     const [enteredTitle, setEnteredTitle] = useState("");
-    const [enteredAmount, setEnteredAmount] = useState("");
+    const [enteredAmount, setEnteredAmount] = useState(0.01);
     const [enteredDate, setEnteredDate] = useState("");
 
     const titleChangeHandler = (e: React.FormEvent<HTMLInputElement>) => {
         setEnteredTitle(e.currentTarget.value);
     };
-    const amountChangeHandler = (e: React.FormEvent<HTMLInputElement>) => {
+    const amountChangeHandler = (e: any) => {
         setEnteredAmount(e.currentTarget.value);
     };
     const dateChangeHandler = (e: React.FormEvent<HTMLInputElement>) => {
@@ -19,14 +24,17 @@ export const ExpenseForm: FC = () => {
     const submitHandler = (e: React.FormEvent) => {
         e.preventDefault();
 
-        const expenseData = {
+        const expenseData: ExpenseItemProps = {
             title: enteredTitle,
             amount: enteredAmount,
             date: new Date(enteredDate),
+            id: "",
         };
+        onSaveExpenseData(expenseData);
+        console.log("valor expenseData en ExpenseForm.submitHandler", expenseData);
 
         setEnteredTitle("");
-        setEnteredAmount("");
+        setEnteredAmount(0.01);
         setEnteredDate("");
         console.log(expenseData);
     };
@@ -40,7 +48,7 @@ export const ExpenseForm: FC = () => {
                 </div>
                 <div className="new-expense__control">
                     <label>Amount</label>
-                    <input type="number" min="0.01" step="0.01" value={enteredAmount} onChange={amountChangeHandler} />
+                    <input type="number" min={0.01} step={0.01} value={enteredAmount} onChange={amountChangeHandler} />
                 </div>
                 <div className="new-expense__control">
                     <label>Date</label>
