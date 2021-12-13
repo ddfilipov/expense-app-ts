@@ -3,9 +3,10 @@ import React, { FC } from "react";
 
 interface ExpensesFilterType {
     onChangeDate: (filteredDate: string) => void;
+    date: string;
 }
 
-export const ExpensesFilter: FC<ExpensesFilterType> = ({ onChangeDate }) => {
+export const ExpensesFilter: FC<ExpensesFilterType> = ({ onChangeDate, date }) => {
     const dateChangeHandler = (e: React.FormEvent<HTMLSelectElement>) => {
         onChangeDate(e.currentTarget.value);
     };
@@ -14,7 +15,7 @@ export const ExpensesFilter: FC<ExpensesFilterType> = ({ onChangeDate }) => {
         <div className="expenses-filter">
             <div className="expenses-filter__control">
                 <label>Filter by year</label>
-                <select onChange={dateChangeHandler}>
+                <select onChange={dateChangeHandler} value={date}>
                     <option value="2022">2022</option>
                     <option value="2021">2021</option>
                     <option value="2020">2020</option>
