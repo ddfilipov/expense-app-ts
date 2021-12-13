@@ -31,12 +31,10 @@ export const ExpenseForm: FC<ExpanseFormType> = ({ onSaveExpenseData }) => {
             id: "",
         };
         onSaveExpenseData(expenseData);
-        console.log("valor expenseData en ExpenseForm.submitHandler", expenseData);
 
         setEnteredTitle("");
         setEnteredAmount(0.01);
         setEnteredDate("");
-        console.log(expenseData);
     };
 
     return (

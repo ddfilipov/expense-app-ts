@@ -13,7 +13,6 @@ export const NewExpense: FC<NewExpanseType> = ({ onAddExpense }) => {
             ...enteredExpenseData,
             id: Math.random().toString(),
         };
-        console.log("entrando en NewExpense.saveExpenseDataHandler", expenseData);
         onAddExpense(expenseData);
     };
     return (
