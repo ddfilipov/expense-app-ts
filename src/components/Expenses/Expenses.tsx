@@ -9,16 +9,16 @@ interface ExpenseType {
 }
 
 export const Expenses: FC<ExpenseType> = ({ expenses }) => {
-    const [date, setDate] = useState("2020");
+    const [filteredYear, setYear] = useState("2020");
 
     const onFilterDate = (filteredDate: string) => {
-        setDate(filteredDate);
+        setYear(filteredDate);
     };
 
     return (
         <div>
             <Card classCSS="expenses">
-                <ExpensesFilter onChangeDate={onFilterDate} date={date} />
+                <ExpensesFilter onChangeDate={onFilterDate} year={filteredYear} />
                 {expenses.map((expense) => (
                     <ExpenseItem
                         key={expense.id}
