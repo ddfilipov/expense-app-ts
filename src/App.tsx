@@ -1,9 +1,10 @@
 import { Expenses } from "./components/Expenses/Expenses";
 import { NewExpense } from "./components/NewExpense/NewExpense";
 import { ExpenseItemProps } from "./components/Expenses/ExpenseItem";
+import { useState } from "react";
 
 function App() {
-    const expenses = [
+    const expensesList = [
         {
             id: "e1",
             title: "Toilet Paper",
@@ -24,9 +25,10 @@ function App() {
             date: new Date("2021-05-12"),
         },
     ];
+    const [expenses, setExpanses] = useState(expensesList);
 
     const addExpenseHandler = (expense: ExpenseItemProps) => {
-        console.log("I'm in App.tsx",expense);
+        setExpanses([...expenses, expense]);
     };
 
     return (
