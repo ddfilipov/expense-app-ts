@@ -32,14 +32,10 @@ function App() {
         setExpanses([expense, ...expenses]);
     };
 
-    const passYearFilter = (date: string) => {
-        setExpanses(initialExpenses.filter((expense) => expense.date.getFullYear().toString() === date));
-    }
-
     return (
         <div>
             <NewExpense onAddExpense={addExpenseHandler} />
-            <Expenses expenses={expenses} filterExpenses={setExpanses} passYearFilter={passYearFilter}/>
+            <Expenses expenses={expenses} />
         </div>
     );
 }
