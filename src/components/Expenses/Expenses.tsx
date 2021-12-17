@@ -1,9 +1,9 @@
 import { FC, useState } from "react";
 import { Card } from "../UI/Card";
-import ExpenseItem, { ExpenseItemProps } from "./ExpenseItem";
+import { ExpenseItemProps } from "./ExpenseItem";
 import "./Expenses.css";
 import { ExpensesFilter } from "./ExpensesFilter";
-
+import { ExpensesList } from "./ExpensesList";
 interface ExpenseType {
     expenses: ExpenseItemProps[];
 }
@@ -21,15 +21,7 @@ export const Expenses: FC<ExpenseType> = ({ expenses }) => {
         <div>
             <Card classCSS="expenses">
                 <ExpensesFilter onChangeDate={onChangeDate} year={filteredYear} />
-                {filteredExpenses.map((expense) => (
-                    <ExpenseItem
-                        key={expense.id}
-                        id={expense.id}
-                        title={expense.title}
-                        amount={expense.amount}
-                        date={expense.date}
-                    />
-                ))}
+                <ExpensesList expenses={filteredExpenses} />
             </Card>
         </div>
     );

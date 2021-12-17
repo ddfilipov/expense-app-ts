@@ -2,7 +2,6 @@ import "./ExpenseItem.css";
 import { FC } from "react";
 import { ExpenseDate } from "./ExpenseDate";
 import { Card } from "../UI/Card";
-import { useState } from "react";
 
 export interface ExpenseItemProps {
     id: string;
@@ -12,15 +11,16 @@ export interface ExpenseItemProps {
 }
 
 const ExpenseItem: FC<ExpenseItemProps> = (props) => {
-
     return (
-        <Card classCSS="expense-item">
-            <ExpenseDate date={props.date} />
-            <div className="expense-item__description">
-                <h2>{props.title}</h2>
-                <div className="expense-item__price">${props.amount}</div>
-            </div>
-        </Card>
+        <li>
+            <Card classCSS="expense-item">
+                <ExpenseDate date={props.date} />
+                <div className="expense-item__description">
+                    <h2>{props.title}</h2>
+                    <div className="expense-item__price">${props.amount}</div>
+                </div>
+            </Card>
+        </li>
     );
 };
 
