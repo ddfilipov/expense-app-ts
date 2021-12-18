@@ -8,7 +8,7 @@ export interface ExpanseFormType {
 
 export const ExpenseForm: FC<ExpanseFormType> = ({ onSaveExpenseData }) => {
     const [enteredTitle, setEnteredTitle] = useState("");
-    const [enteredAmount, setEnteredAmount] = useState(0.01);
+    const [enteredAmount, setEnteredAmount] = useState(0);
     const [enteredDate, setEnteredDate] = useState("");
     const [showFormFields, setShowFormFields] = useState(false);
 
@@ -32,16 +32,16 @@ export const ExpenseForm: FC<ExpanseFormType> = ({ onSaveExpenseData }) => {
             id: "",
         };
         onSaveExpenseData(expenseData);
-        resetFormValues();
+        handleHideForm();
     };
 
     const resetFormValues = () => {
         setEnteredTitle("");
-        setEnteredAmount(0.01);
+        setEnteredAmount(0);
         setEnteredDate("");
     };
 
-    const handleCancelForm = () => {
+    const handleHideForm = () => {
         resetFormValues();
         setShowFormFields(false);
     };
@@ -54,7 +54,6 @@ export const ExpenseForm: FC<ExpanseFormType> = ({ onSaveExpenseData }) => {
         <form onSubmit={submitHandler}>
             {showFormFields === true ? (
                 <div className="new-expense__controls">
-                    {/* <div> */}
                     <div className="new-expense__control">
                         <label>Title</label>
                         <input type="text" value={enteredTitle} onChange={titleChangeHandler} />
@@ -79,9 +78,8 @@ export const ExpenseForm: FC<ExpanseFormType> = ({ onSaveExpenseData }) => {
                             onChange={dateChangeHandler}
                         />
                     </div>
-                    {/* </div> */}
                     <div className="new-expense__actions">
-                        <button type="button" onClick={handleCancelForm}>
+                        <button type="button" onClick={handleHideForm}>
                             Cancel
                         </button>
                         <button type="submit">Add Expense</button>
