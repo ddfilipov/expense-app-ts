@@ -2,7 +2,7 @@ import { FC } from "react";
 import ExpenseItem, { ExpenseItemProps } from "./ExpenseItem";
 import "./ExpensesList.css";
 
-interface ExpensesListType {
+export interface ExpensesListType {
     expenses: ExpenseItemProps[];
 }
 

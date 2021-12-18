@@ -1,14 +1,11 @@
 import { FC, useState } from "react";
 import { Card } from "../UI/Card";
-import { ExpenseItemProps } from "./ExpenseItem";
 import "./Expenses.css";
 import { ExpensesFilter } from "./ExpensesFilter";
 import { ExpensesList } from "./ExpensesList";
-interface ExpenseType {
-    expenses: ExpenseItemProps[];
-}
+import { ExpensesListType } from "./ExpensesList";
 
-export const Expenses: FC<ExpenseType> = ({ expenses }) => {
+export const Expenses: FC<ExpensesListType> = ({ expenses }) => {
     const [filteredYear, setYear] = useState("2020");
 
     const onChangeDate = (filteredDate: string) => {
