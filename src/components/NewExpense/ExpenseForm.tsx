@@ -46,8 +46,8 @@ export const ExpenseForm: FC<ExpanseFormType> = ({ onSaveExpenseData }) => {
         setShowFormFields(false);
     };
 
-    const handleAddExpense = () => {
-        setShowFormFields(!showFormFields);
+    const handleShowForm = () => {
+        setShowFormFields(true);
     };
 
     return (
@@ -86,7 +86,7 @@ export const ExpenseForm: FC<ExpanseFormType> = ({ onSaveExpenseData }) => {
                     </div>
                 </div>
             ) : (
-                <button onClick={handleAddExpense}>Add New Expense</button>
+                <button onClick={handleShowForm}>Add New Expense</button>
             )}
         </form>
     );
