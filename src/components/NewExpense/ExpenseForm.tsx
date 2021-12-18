@@ -31,7 +31,10 @@ export const ExpenseForm: FC<ExpanseFormType> = ({ onSaveExpenseData }) => {
             id: "",
         };
         onSaveExpenseData(expenseData);
+        resetFormValues();
+    };
 
+    const resetFormValues = () => {
         setEnteredTitle("");
         setEnteredAmount(0.01);
         setEnteredDate("");
@@ -59,6 +62,9 @@ export const ExpenseForm: FC<ExpanseFormType> = ({ onSaveExpenseData }) => {
                     />
                 </div>
                 <div className="new-expense__actions">
+                    <button type="button" onClick={resetFormValues}>
+                        Cancel
+                    </button>
                     <button type="submit">Add Expense</button>
                 </div>
             </div>
