@@ -16,6 +16,7 @@ export const NewExpense: FC<NewExpanseType> = ({ onAddExpense }) => {
             id: Math.random().toString(),
         };
         onAddExpense(expenseData);
+        setShowFormFields(false);
     };
 
     const handleShowForm = (visible: boolean) => {

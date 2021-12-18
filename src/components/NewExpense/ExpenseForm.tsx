@@ -32,7 +32,6 @@ export const ExpenseForm: FC<ExpanseFormType> = ({ onSaveExpenseData, handleShow
             id: "",
         };
         onSaveExpenseData(expenseData);
-        handleHideForm();
     };
 
     const resetFormValues = () => {
